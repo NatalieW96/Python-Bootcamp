@@ -25,10 +25,17 @@ print("Hello world!")
 ###### natalie.williams@uni-potsdam.de
 ---
 ## Logistics
-- This course is a one week intensive course designed to teach basic Python programming 
-- The course is aimed at complete beginners to Python or programming in general, or those that want to brush up before the semester kicks in
-- Each day will consist of two sessions: one lecture from 10:15 - 12:30, and one seminar from 13:15 - 15:30
+- This course is a one week intensive course designed to teach basic Python programming for scientists
+- The course is aimed at complete beginners to Python or programming in general, those who know another language, or just those that want to brush up 
+- Each day will consist of two sessions: one from 10:15 - 12:30, and one from 13:15 - 15:30
 - All sessions will take place here in room xxx
+
+---
+## Logistics
+- Each session will be lecture style for ~45 mins, followed by hands on coding for the remaining hour where I will be available to help
+- Material is available on moodle, and you may use the computers here or your own personal laptop (may require extra setup)
+- You are encouraged to work together with your neighbour, and to google things ([stackoverflow](https://stackoverflow.com/questions) is your friend)
+- This is the first time this course is being delivered, so please ask questions where needed. We can slow things down as much as we need.
 
 ---
 ## Course content
@@ -44,19 +51,22 @@ print("Hello world!")
 ---
 #### What this course won't cover
 - Shell scripting
+- Binary and computer memory allocation
 - Linux system administration or remote access tools
 - Advanced Python (generators, lambda functions, decorators)
 - Graphical user interfaces or animations
 - Modules such as `pandas`, `seaborn`
 - Using git
-- Other programming languages
+
+This is a course in Python *for scientists* **not** computer programmers, so we will focus on the practical aspects of Python.
+
 ---
 ## What is Python?
 - Python is a high level, interpreted programming language
 - As an interpreted language it is easy to run and does not require a separate compiler such as with C/C++
 - It is known for its ease of use and clear syntax
 - Python is widely used in the scientific community, particularly for data analysis
-- It lets you use packages and code written by others easily, so you can build powerful programs without starting from scratch
+- Python lets you use packages and code written by others easily, so you can build powerful programs without starting from scratch
 ---
 ### 
 ### Pros of Python
@@ -70,17 +80,17 @@ print("Hello world!")
 ---
 # Session 1: Using the Terminal
 ```bash
-williams@Natalie:~/Documents$ pwd
-/home/williams/Documents
+williams@Natalie:~$ pwd
+/home/williams
 
-williams@Natalie:~/Documents$ ls
-mycode.py  Downloads  Music    
+williams@Natalie:~$ ls
+mycode.py  Documents    
 
-williams@Natalie:~/Documents$ cd Music
+williams@Natalie:~$ mkdir Computing
 
-williams@Natalie:~/Documents$ echo Hello world!
-Hello World!
+williams@Natalie:~$ cd Computing
 
+williams@Natalie:~/Computing$ touch mynotes.txt
 ```
 ---
 ## The terminal
@@ -110,7 +120,7 @@ wsl
 Natalie@mylinux:~$
 ```
 - We are in a location, our home **directory** (folder), denoted by `~`.
-- To check where you currently are in the computer, you can use the command  `pwd` to print our current location (or **path**)
+- To check where you currently are in the file system, you can use the command  `pwd` to print our current location (or **path**)
 
 ```bash
 Natalie@mylinux:~$ pwd
@@ -153,7 +163,7 @@ Natalie@mylinux:~$ ls
 Documents   mycode.py  
 ```
 - These file types are colour-coded as normal files, <span class="term-dir">documents</span>, and <span class="term-exe">executable files</span>.
-- Hidden files (files that start with `.` and are hidden from the user) can be shown with `ls -a`
+- Hidden files (files/directories that start with `.` and are hidden from the user) can be shown with `ls -a`
 
 ```bash
 Natalie@mylinux:~$ ls -a
@@ -272,14 +282,15 @@ This is my text file
 
 # Session 2: Python basics
 ```python
-x = 5
-y = 10
+# Calculate adjusted travel time to the ISS
 
-print('Doing some maths!')
+name = input("Astronaut name: ")
+speed = int(input("Speed in km/s: "))
+distance = 400
+time = distance / speed
 
-result = x + y
-
-print('Sum:', result)
+time += 2  # docking delay
+print(f"ETA for {name[:3]}: {time}")
 
 ```
 ---
@@ -515,7 +526,81 @@ print(x + 5) # returns expected value
 ```
 ---
 # Session 3: Lists, Tuples, Sets & Dictionaries
+
+```python
+planets = ["Mercury", "Venus", "Earth"]
+constellations = ("Orion", "Cassiopeia", "Lyra")
+observatories = {"ALMA", "Keck", "VLT", "ALMA"}
+galaxy = {"name": "Andromeda", "distance": 2.5}
+
+planets.append("Mars")
+print(constellations[1])
+print(observatories)
+print(galaxy["distance"])
+```
 ---
+## Lists 
+- Lists are a **ordered**, **mutable** collection (can be changed after it has been created) denoted by square brackets
+
+```python
+planets = ["Mercury", "Venus", "Earth"]
+series = [2 , 8 , 3 , 4]
+```
+- Lists can be indexed and sliced to obtain values
+```python
+print(planets[2]) # 'Earth'
+print(series[1:3]) # [8 , 4] = ["Mercury", "Venus", "Earth"]
+series = [ 2 , 8 , 3 , 4]
+```
+---
+## Lists 
+- Lists can be changed using indexing
+
+```python
+planets[1] = 'Mars'
+print(planets) # ['Mercury' , 'Mars' , 'Earth']
+```
+- Lists can be added to at the end with the `append` method, and values inserted in specific positions with `insert`
+```python
+planets.append('Jupiter')
+planets.insert( 1 ,'Venus')
+print(planets) # ['Mercury' , 'Venus' , 'Mars' , 'Earth', 'Jupiter']
+```
+
+---
+## Lists 
+- Items can be removed by value with `remove` and index with  `pop`
+
+```python
+planets.remove('Earth')
+planets.pop(3)
+print(planets) # ['Mercury' , 'Venus',  'Mars']
+```
+- Lists are mutable, so methods change **the list itself**, unlike when we used methods with strings which are not mutable. There the method returned a new string without changing the original string 
+```python
+mystring = 'Hello'
+mystring[0] = 'J' # TypeError: 'str' object does not support item assignment
+```
+
+---
+
+## Lists 
+- Different data types can be combined in one list
+
+```python
+mylist = ["banana", 4 , 1.8e-7 , "red"]
+```
+- Other useful **functions** (do not change the list) include
+```python
+x = [2, 6, -3, 8]
+print(len(x)) # length of list -> 4
+sum(x) # sum if numeric -> 16
+min(x) # minimum if numeric -> -3
+max(x) # maximum if numeric -> 8
+```
+
+---
+
 # Session 4: Control Flow & Error Handling
 ---
 # Session 5: Functions
