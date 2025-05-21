@@ -12,7 +12,7 @@ pageinate: true
 -->
 ![bg right:40%](./potsdam.png)
 
-# Python Bootcamp
+# Python Beginners Bootcamp
 ## Universität Potsdam
 ### Winter 2025
 
@@ -184,7 +184,7 @@ drwxr-xr-x  6 Natalie Natalie    4096 Feb 20 14:32  Documents
 -rw-rw-r--  1 Natalie Natalie       5 Mar 27 14:34  mycode.py
 ```
 - Permissions are laid out as d<span class="term-dir">rwx</span><span class="term-exe">rwx</span><span class="term-zip">rwx</span> where d - directory, r - read, w - write, x - execute for <span class="term-dir">user</span>, <span class="term-exe">group</span> and <span class="term-zip">others</span> users
-- Permissions can be changed with `chmod` ie. `chmod u+x mycode.py`
+- Permissions can be changed with `chmod` i.e., `chmod u+x mycode.py`
 ---
 ## Moving around
 - To move to another directory from your current location use `cd`
@@ -276,7 +276,7 @@ This is my text file
 --INSERT--                                                   1,1         All
 ```
 - After finishing press `esc` and enter `:wq` to write and quit, or `:q!` to quit without saving and go back to the terminal
-- Vim can be used to write Python files with, ie. `vim myscript.py`
+- Vim can be used to write Python files with, i.e. `vim myscript.py`
 
 ---
 
@@ -406,7 +406,7 @@ y = (6 - x)**2 / x # y is 0.2
 z = y + x # z = 5.2
 ```
 
-Note that during operations data types may be implicitly converted ie. `x` is implicitly converted from `int` to `float` in this last line
+Note that during operations data types may be implicitly converted i.e. `x` is implicitly converted from `int` to `float` in this last line
 
 ---
 
@@ -475,7 +475,7 @@ print(name[5:]) # 5th to end -> 'ie'
 print(name[1:6:2]) # every 2nd letter 2nd to 7th -> 'aai'
 print(name[::3]) # every 3rd letter -> 'Nae'
 ```
-- We can also use `len` to get the length of a string ie. `len(name`)
+- We can also use `len` to get the length of a string i.e. `len(name`)
 
 ---
 ## Modifying strings
@@ -540,7 +540,7 @@ print(galaxy["distance"])
 ```
 ---
 ## Lists 
-- Lists are a **ordered**, **mutable** collection (can be changed after it has been created) denoted by square brackets
+- Lists are an **ordered**, **mutable** collection (can be changed after it has been created) denoted by square brackets
 
 ```python
 planets = ["Mercury", "Venus", "Earth"]
@@ -549,34 +549,34 @@ series = [2 , 8 , 3 , 4]
 - Lists can be indexed and sliced to obtain values
 ```python
 print(planets[2]) # 'Earth'
-print(series[1:3]) # [8 , 4] = ["Mercury", "Venus", "Earth"]
-series = [ 2 , 8 , 3 , 4]
+print(series[1:3]) # [8 , 4]
 ```
 ---
-## Lists 
+## Changing and adding to lists 
 - Lists can be changed using indexing
 
 ```python
 planets[1] = 'Mars'
 print(planets) # ['Mercury' , 'Mars' , 'Earth']
 ```
-- Lists can be added to at the end with the `append` method, and values inserted in specific positions with `insert`
+- We add single values to the end with the `append` method, inserted in specific positions with `insert`, and concantenate lists together with `extend` or `+`
 ```python
 planets.append('Jupiter')
 planets.insert( 1 ,'Venus')
-print(planets) # ['Mercury' , 'Venus' , 'Mars' , 'Earth', 'Jupiter']
+planets.extend(['Saturn', 'Neptune'])
+print(planets) # ['Mercury' , 'Venus' , 'Mars' , 'Earth', 'Jupiter' , 'Saturn' , 'Neptune']
 ```
 
 ---
-## Lists 
-- Items can be removed by value with `remove` and index with  `pop`
+## Removing from lists 
+- Items are removed by value with `remove` (removes first item of this value) and index with  `pop`
 
 ```python
 planets.remove('Earth')
 planets.pop(3)
-print(planets) # ['Mercury' , 'Venus',  'Mars']
+print(planets) # ['Mercury' , 'Venus',  'Mars' , 'Saturn' , 'Neptune']
 ```
-- Lists are mutable, so methods change **the list itself**, unlike when we used methods with strings which are not mutable. There the method returned a new string without changing the original string 
+- Lists are mutable, so methods change them directly; string methods return new strings instead of changing the original.
 ```python
 mystring = 'Hello'
 mystring[0] = 'J' # TypeError: 'str' object does not support item assignment
@@ -584,24 +584,510 @@ mystring[0] = 'J' # TypeError: 'str' object does not support item assignment
 
 ---
 
-## Lists 
-- Different data types can be combined in one list
+## Lists properties
+- Different data types can be combined in one list, and values can be repeated
 
 ```python
-mylist = ["banana", 4 , 1.8e-7 , "red"]
+mylist = ["banana", 4 , 1.8e-7 , "banana"]
 ```
 - Other useful **functions** (do not change the list) include
 ```python
 x = [2, 6, -3, 8]
 print(len(x)) # length of list -> 4
-sum(x) # sum if numeric -> 16
-min(x) # minimum if numeric -> -3
-max(x) # maximum if numeric -> 8
+print(sum(x)) # sum if numeric -> 16
+print(min(x)) # minimum if numeric -> -3
+print(max(x)) # maximum if numeric -> 8
+```
+---
+
+## Tuples
+
+- A tuple is a collection which is ordered and **unchangeable**, written with round brackets
+```python
+planets = ("Mercury" , "Venus" , "Earth")
+```
+- We cannot change, add or remove items from a tuple
+- Multiple entires with the same value are allowed
+```python
+planets = ("Mercury" , "Venus" , "Earth" , "Venus")
+```
+---
+
+## Creating tuples
+- Tuples can be created with one item but **must** contain a `,`
+```python
+planets = ("Earth") # NOT a tuple
+planets = ("Earth",) # a tuple
+```
+- Tuples can contain any and multiple data types
+```python
+mytuple = ("Earth" , 5 , True , 3.46e5)
+```
+- `len` can still be used to obatain a tuple length
+```python
+print(len(mytuple)) # 4
+```
+---
+
+## Accessing tuples
+- Values in tuples can still be indexed and sliced
+```python
+planets = ("Mercury" , "Venus" , "Earth" , "Mars")
+print(planets[2]) # "Earth"
+print(planets[1:-1]) # ("Venus" , "Earth")
+```
+- You can add a tuple to a tuple with `+`
+```python
+x = ("Jupiter",)
+planets += x
+print(planets) # ("Mercury" , "Venus" , "Earth" , "Mars" , "Jupiter")
+```
+---
+
+## Unpacking tuples
+Tuples can be **unpacked** to extract the individual values back into variables
+```python
+planets = ("Mercury" , "Venus" , "Earth")
+(planet1 , planet2 , planet3) = planets
+print(planet1) # "Mercury"
+```
+- Multiple variables can be unpacked with `*`
+```python
+(planet1 , *other_planets) = planets
+print(other_planets) # ("Venus" , "Earth")
+```
+---
+ ## Sets
+ - A set is an **unordered, unindexed** collection denoted with curly brackets `{}`
+ ```python
+planets = {"Mercury" , "Venus" , "Earth"}
+print(planets) # {'Mercury', 'Earth', 'Venus'}
+```
+- Sets can contain all data types, but other collections, sets **do not** allow multiple entries with the same value
+ ```python
+myset = {"Mercury" , "Venus" , "Earth" , "Mercury", 7.3 , 1 , True, False}
+print(myset) # {False, 1, 'Earth', 'Mercury', 7.3, 'Venus'}
+```
+---
+ ## Acessing sets
+ - As they are unordered, sets cannot be indexed and can only be accessed by a loop (next session)
+ - We can use `in`/`not in` to check if an entry is in/not in a set
+ ```python
+planets = {"Mercury" , "Venus" , "Earth"}
+print("Earth" in planets) # True
+print("Venus" not in planets) # False
+```
+---
+ ## Adding and removing from sets
+- Set elements cannot be changed but sets can be added to with the `add` method 
+ ```python
+planets = {"Mercury" , "Venus" , "Earth"}
+planets.add("Mars")
+print(planets) # {"Mars" , "Mercury" , "Earth" , "Venus"}
+```
+- Items can be removed with either the `remove` or `discard` method
+ ```python
+planets.remove("Venus")
+planets.discard("Mars")
+print(planets) # {"Mercury" , "Venus"}
+```
+---
+ ## Joining sets
+- There are various method to join sets
+ ```python
+planets1 = {"Mercury" , "Venus" , "Earth"}
+planets2 = {"Venus" , "Earth" , "Mars"}
+
+print(planets1.union(planets2)) 
+# joins items from both sets ->  {'Earth', 'Venus', 'Mercury', 'Mars'}
+print(planets1.intersection(planets2)) 
+# joins but keeps only duplicates -> {'Earth', 'Venus'}
+print(planets1.difference(planets2)) 
+# keeps itens in first set not in the second ->  {'Mercury'}
+print(planets1.symmetric_difference(planets2)) 
+# keeps all except duplicates -> {'Mercury', 'Mars'}
+```
+---
+## Dictionaries
+
+- Dictionaries are **ordered, changeable** collections
+- Denoted with curly brackets with key: value pairs `{key:value}`
+```python
+Mars = {
+  "Radius": 3389.5,
+  "Colour": "Red",
+  "Temperature": -65 }
+print(Mars) # {'Radius': 3389.5, 'Colour': 'Red', 'Temperature': -65}
+```
+- Since they are unordered, dictionaries cannot be indexed
+```python
+print(Mars[0]) # KeyError: 0
+```
+---
+## Dictionaries
+- Duplicate entries will overwrite existing values
+```python
+Mars = {
+  "Radius": 3389.5,
+  "Colour": "Red",
+  "Temperature": -65, 
+  "Colour": "Blue" }
+print(Mars) # {'Radius': 3389.5, 'Colour': 'Blue', 'Temperature': -65}
+```
+- Dictionary keys can also be numbers
+
+```python
+mydict = {0: 1}
+print(mydict)  # {0: 1}
+```
+---
+## Accessing dictionaries
+- Items are accessed with `dict_name["key_name"]`
+```python
+Mars = {
+  "Radius": 3389.5,
+  "Colour": "Red",
+  "Temperature": -65 }
+print(Mars["Colour"]) # 'Red'
+```
+- Key names can be listed with `keys`, and values with `values`
+```python
+print(Mars.keys()) # dict_keys(['Radius', 'Colour', 'Temperature'])
+print(Mars.values()) # dict_values([3389.5, 'Red', -65])
+```
+---
+## Editing dictionaries
+- Dictionaries can be added and changed with an assigment
+```python
+Mars["Period"] = 687
+Mars["Colour"] = "Blue"
+print(Mars) # {'Radius': 3389.5, 'Colour': 'Blue' , 'Temperature': -65, 'Period': 687}
+```
+- Entries can be deleted with the `pop` method
+```python
+Mars.pop("Period")
+print(Mars) # {'Radius': 3389.5, 'Colour': 'Blue' , 'Temperature': -65}
+```
+---
+## Editing dictionaries
+- Dictionaries can be copied with the `copy` method
+```python
+Mars_2 = Mars.copy()
+```
+- You **cannot** copy dictionaries through assignement ie ` Mars_2 = Mars` as any changes to one will change the other
+
+---
+## Nested dictionaries
+- Dictionaries can be **nested** 
+```python
+planets = {
+  "Mercury" : {
+    "Radius" : 2439,
+    "Mass" : 3.285e23 },
+  "Venus" : {
+    "Radius" : 6052,
+    "Mass" : 4.867e24 },
+  "Earth" : {
+    "Radius" : 6378,
+    "Mass" : 5.972e24
+  }
+}
 ```
 
 ---
+## Nested dictionaries
+- To access the items in a nested dictionary, use the key names moving outside in
+```python
+print(planets["Venus"]["Radius"]) # 6052
+```
+- Again we can use `len` to get the length of a dictionary
+```python
+print(len(Mars)) # 3
+```
+---
 
-# Session 4: Control Flow & Error Handling
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; text-align: left; font-size: 14px;">
+  <thead style="background-color: #f2f2f2;">
+    <tr>
+      <th>Property</th>
+      <th>List</th>
+      <th>Tuple</th>
+      <th>Set</th>
+      <th>Dictionary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Syntax</strong></td>
+      <td>[1, 2, 3]</td>
+      <td>(1, 2, 3)</td>
+      <td>{1, 2, 3}</td>
+      <td>{"a": 1, "b": 2}</td>
+    </tr>
+    <tr>
+      <td><strong>Ordered</strong></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes (Python 3.7+)</td>
+    </tr>
+    <tr>
+      <td><strong>Indexed</strong></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>By key</td>
+    </tr>
+    <tr>
+      <td><strong>Mutable</strong></td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><strong>Allows Duplicates</strong></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Keys: No<br>Values: Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+
+---
+
+# Session 4: Control Flow & Error Handling  
+```python
+numbers = [10, -5, 0, 23, -1]
+
+for n in numbers:
+    if n > 0:
+        print(f"{n} is positive")
+    elif n < 0:
+        print(f"{n} is negative")
+    else:
+        print("Zero found")
+```
+---
+## `if`, `elif` and `else`
+![bg right:33% height:650](./if..elif_...else-decision-flowchart-python.png)
+- We can combine the conditional statements we saw in session 2 (i.e. `==`, `<`, `>`)with `if`, `elif` and `else` statements to selectively evaluate blocks of code such as
+```python
+if *some condition evaluates true *:
+  *do something*
+elif *some other condition evaluates true*:
+  *do a different thing*
+else:
+  *do yet another different thing* 
+```
+---
+## `if`, `elif` and `else`
+- If a statement evaluates to `True`, the indented code block is ran, and skipped otherwise
+```python
+print(5 > 0) # True
+print(5 == 6) # False
+
+if 5 == 6:
+  print('This is True') # This would not run as 5 == 6 is False
+elif 5 > 3:
+  print('This is True') # This would run as 5 > 3 is True 
+elif 5 == 5:
+  print('This is True') # This would not run as the clause above was already fulfilled
+else:
+  print('Neither of these were True') # This would not run as one of the above was True
+```
+---
+## Aside: a note on indentation
+- Notice that after the `if`/`elif`/`else` statements there is an indent - this is not style but **necessary**
+```python
+x = 5
+if x > 0:
+  print('checking...') # this will run fine
+  print('positive number') # both these lines are in the same code block and will run together
+print('moving on...') # this will run regardless - outside of the if code block
+
+if x > 0:
+print('positive number') # This will raise an IndentationError
+```
+- We call the indented section a **code block** as it is a group of lines that are run together
+---
+## `if`, `elif` and `else`
+- In a series of `if`, `elif` and `else` statements, if one is `True `, the rest are skipped
+```python
+number = 8
+if number > 5:
+  print("Number is greater than 5")
+elif number % 2 == 0:
+  print("Number is even")
+elif number > 10:
+  print("Number is greater than 10")
+else:
+  print("Number is 5 or less and odd")
+# prints only the first one -> Number is greater than 5
+```
+---
+## `if`, `elif` and `else`
+- Alternatively a series of only `if` statements, they are run separately
+```python
+number = 8
+if number > 5:
+  print("Number is greater than 5")
+if number % 2 == 0:
+  print("Number is even")
+if number > 10:
+  print("Number is greater than 10")
+# prints each one it fulfills -> Number is greater than 5    Number is even
+```
+---
+## `if`, `elif` and `else`
+- We can use logical operators as well as conditional operators in  our statements
+```python
+number = 5
+if number % 2 == 0 and number > 10: # runs if both conditions evaluate to True
+  print(f"{number} is even and greater than 10") # this does not run
+elif number % 2 != 0 or number == 10: # runs if at least one condition evaluates to True
+  print(f"{number} is either odd or exactly 10") # this runs
+elif not number > 0:
+  print(f"{number} is negative")  # runs if condition is not True
+else: # runs if neither of the above were fulfilled
+  print(f"{number} does not match the above conditions") # this does not run
+```
+---
+## `while` loops
+![bg right:33% height:500](./python-while-loop-flowchart.png)
+- `while` loops repeat a block of code whilst some condition is `True`
+```python
+i = 1
+while i < 10: # runs code block while this is True
+  print(f'{i} is less than 10')
+  i += 1
+```
+- Warning: without proper care while loops can run infinitely! (cancel with a) terminal: `Ctrl+C`, b) jupyter: restart kernel)
+---
+## `break` statements
+![bg right:45% height:750](./break-statement-flow-diagram.png)
+- We can force the loop to end with a `break`  statement
+```python
+number = 1
+
+while number <= 5:
+  print(f"Number is: {number}")
+    
+  if number == 3:
+    print("Stopping the loop early!")
+    break  # exit the loop completely immediately
+    print("That was a break!") # this will never run!
+    
+  number += 1 # pay attention to indents
+  # this runs outside of the if, but inside the while
+```
+---
+## `break` statements
+- We can use break statements to exit an otherwise infinte loop
+```python
+count = 0
+
+while True: # this forms an infinite loop as it will always be True
+  print(f"Loop number: {count}")
+  count += 1
+
+  if count == 5:
+    print("Reached 5, breaking the loop.")
+    break  # Exit the infinite loop
+```
+---
+## `continue` statements
+![bg right:45% height:710](./continue-statement-flow-diagram.png)
+- We can force a loop to skip the rest of it's block and return to the start with `continue`
+```python
+i = 0 
+while i < 10:
+  i += 1
+  if i == 5:
+    print(f'skipping 5!')
+    continue
+  print(i)
+```
+---
+## Exception handling
+- We can check for errors and deal with them before we run a line with `try` and `except`
+```python
+try:
+  num = int("hello")  # trying to convert text to a number
+except:
+  print("Something went wrong!")
+print("anyway...moving on!")
+```
+- Here if an error takes place in the `try` block, it triggers the `except` block, but the code still continues after
+---
+## Exception handling
+- We can combine this with a `while` loop to ensure the user inputs the correct data type for the problem
+```python
+while True:
+  try: 
+    number = int(input("Enter a number: ")) # Errors if string is given
+    print(f"You entered: {number}")
+    break  # Exit the loop if input is valid
+  except: # can also specify except ValueError for example
+    print("Invalid input. Please enter a valid number.")
+```
+---
+## `for` loops
+![bg right:48% height:700](./python_for_loop.jpg)
+- We can loop over a sequence (i.e. list, tuple, dictionary, set, string) with a `for` loop
+```python
+planets = ['Mercury', 'Venus', 'Mars']
+for x in planets: 
+  print(x)
+```
+- We have assigned a variable `x` to take on each value in the list per loop iteration
+---
+## `range`
+- When looping over consecutive numbers it is useful to create a list  to loop over with the `range` function
+```python
+for i in range(6): # range(6) = [0 , 1 , 2 , 3 , 4 , 5]
+  print(i)
+
+for i in range(2, 6): # range(2, 6) = [2 , 3 , 4 , 5]
+  print(i)
+
+for i in range(2, 12 , 3): # range(2, 12, 3) = [2 , 5 , 8 , 11]
+  print(i)
+```
+---
+## Accessing index and variable
+- We can loop over the indexes of a collection by creating a list with `range` up to `len` of the collection
+```python
+planets = ['Mercury' , 'Venus' , 'Earth' , 'Mars']
+for i in range(len(planets)):
+  print(f'planet {i}:{planets[i]}')
+```
+- Alternatively we can use `enumerate` which gives index and value
+```python
+planets = ['Mercury' , 'Venus' , 'Earth' , 'Mars']
+for i, planet_name in enumerate(planets_order):
+  print(f'planet {i}:{planet_name}')
+```
+---
+## `break` and `continue`
+- We can also use `break ` and `continue` in `for` loops
+```python 
+for num in range(-10,10):
+  if num < 0:
+    continue  # skip negative numbers
+
+  print(f"Checking number: {num}")
+
+  if num == 5:
+    print("Found the number 5! Breaking the loop.")
+    break
+```
+---
+## Nested `for` loops
+
+
 ---
 # Session 5: Functions
 ---
