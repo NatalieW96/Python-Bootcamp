@@ -27,11 +27,13 @@ The material is organised into themed sessions:
 ---
 
 ## 🛠 Requirements
-To follow along with the exercises, you will need:
+To follow along with the exercises locally, you will need:
 
 - Python 3.12+  
 - [Jupyter Notebook/Lab](https://jupyter.org/)  
 - Recommended packages: `numpy`, `matplotlib`, `scipy`, `astropy` (all installable via [Anaconda](https://www.anaconda.com/) or `pip`)
+
+You can also run these notebooks via the browser on [Google Collab](https://drive.google.com/drive/folders/1ky3BUGGVTmH_Qe-uSXMBVU9V4YX1_dV2?usp=sharing)
 
 ---
 
