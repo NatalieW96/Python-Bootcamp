@@ -6,7 +6,7 @@ This repository contains all materials for the Python Beginners Bootcamp, includ
 - Exercises
 - Solutions
 
-The course is designed for complete beginners to Python or programming in general, as well as those wanting to refresh their skills. It focuses on **practical Python programming for data analysis**.
+The course is designed for complete beginners to Python or programming in general, as well as those wanting to refresh their skills. It focuses on **practical Python programming for astrophysics**.
 
 ---
 
