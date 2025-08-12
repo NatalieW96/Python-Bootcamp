@@ -12,13 +12,13 @@ The course is designed for complete beginners to Python or programming in genera
 
 ## Course Content
 
-The material is organised into themed sessions:
+The material is organised into ten sessions:
 
 - **Terminal Basics** – navigating the filesystem, managing files & directories, working with text editors.
 - **Python Fundamentals** – variables, data types, operators, strings, user input.
 - **Data Structures** – lists, tuples, sets, dictionaries, and their operations.
 - **Control Flow & Error Handling** – `if`/`elif`/`else`, loops, `break`/`continue`, exceptions, debugging.
-- **Functions & Introduction to Classes** – defining functions, arguments, scope, docstrings, and basic classes.
+- **Functions** – defining functions, arguments, scope, docstrings, and basic classes.
 - **Packages & Virtual Environments** – using `conda` and `pip`, creating and managing environments.
 - **NumPy** – arrays, vectorised operations, masking, linear algebra, Fourier transforms, saving/loading data.
 - **Matplotlib** – plotting data, customising visuals, subplots, histograms, contour and 3D plots.
