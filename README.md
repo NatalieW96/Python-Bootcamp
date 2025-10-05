@@ -14,19 +14,20 @@ The course is designed for complete beginners to Python or programming in genera
 
 The material is organised into ten sessions:
 
-- **Terminal Basics** – navigating the filesystem, managing files & directories, working with text editors.
-- **Python Fundamentals** – variables, data types, operators, strings, user input.
-- **Data Structures** – lists, tuples, sets, dictionaries, and their operations.
-- **Control Flow & Error Handling** – `if`/`elif`/`else`, loops, `break`/`continue`, exceptions, debugging.
-- **Functions** – defining functions, arguments, scope, docstrings, and basic classes.
-- **Packages & Virtual Environments** – using `conda` and `pip`, creating and managing environments.
-- **NumPy** – arrays, vectorised operations, masking, linear algebra, Fourier transforms, saving/loading data.
-- **Matplotlib** – plotting data, customising visuals, subplots, histograms, contour and 3D plots.
-- **SciPy & Astropy** – optimisation, integration, curve fitting, astronomical coordinates and units.
+1.  **Terminal Basics** – navigating the filesystem, managing files & directories, working with text editors.
+2.  **Python Fundamentals** – variables, data types, operators, strings, user input.
+3.  **Data Structures** – lists, tuples, sets, dictionaries, and their operations.
+4.  **Control Flow & Error Handling** – `if`/`elif`/`else`, loops, `break`/`continue`, exceptions, debugging.
+5.  **Functions** – defining functions, arguments, scope, docstrings, and basic classes.
+6.  **Packages & Virtual Environments** – using `conda` and `pip`, creating and managing environments.
+7.  **NumPy** – arrays, vectorised operations, masking, linear algebra, Fourier transforms, saving/loading data.
+8.  **Matplotlib** – plotting data, customising visuals, subplots, histograms, contour and 3D plots.
+9.  **SciPy & Astropy** – optimisation, integration, curve fitting, astronomical coordinates and units.
+10.  **Git** - using Git for cloning projects, backing up your own projects and working with collaborators.
 
 ---
 
-## 🛠 Requirements
+## Requirements
 To follow along with the exercises locally, you will need:
 
 - Python 3.12+  
@@ -37,7 +38,7 @@ You can also run these notebooks via the browser on [Google Collab](https://driv
 
 ---
 
-## 📧 Contact
+## Contact
 **Dr. Natalie Williams** — [natalie.williams@uni-potsdam.de](mailto:natalie.williams@uni-potsdam.de)
 
 ---
