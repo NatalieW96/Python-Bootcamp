@@ -1,12 +1,12 @@
-# Python Beginners Bootcamp
+# Introduction to Python for Astrophysics
 
-This repository contains all materials for the Python Beginners Bootcamp, including:
+This repository contains all materials for the Introduction to Python for Astrophysics coure, including:
 
 - Lecture slides
 - Exercises
 - Solutions
 
-The course is designed for complete beginners to Python or programming in general, as well as those wanting to refresh their skills. It focuses on **practical Python programming for astrophysics**.
+The course is designed for complete beginners to Python or programming in general, as well as those wanting to refresh their skills.
 
 ---
 
@@ -28,7 +28,7 @@ The material is organised into ten sessions:
 ---
 
 ## Requirements
-To follow along with the exercises locally, you will need:
+To follow along with the exercises locally (on your own laptop), you will need:
 
 - Python 3.12+  
 - [Jupyter Notebook/Lab](https://jupyter.org/)  
