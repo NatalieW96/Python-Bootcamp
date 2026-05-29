@@ -14,7 +14,7 @@
     }
   },
 
-  "postCreateCommand": "",
+  "postCreateCommand": "conda create -y -n course python=3.12",
 
   "remoteUser": "vscode"
 }
