@@ -1,5 +1,5 @@
 {
-  "name": "Python Course (Conda)",
+  "name": "Conda Bootcamp",
 
   "build": {
     "dockerfile": "Dockerfile"
@@ -14,7 +14,7 @@
     }
   },
 
-  "postCreateCommand": "conda create -y -n course python=3.12",
+  "postCreateCommand": "conda --version && echo 'Conda ready'",
 
   "remoteUser": "vscode"
 }
