@@ -1,6 +1,6 @@
 # Introduction to Python for Astrophysics
 
-This repository contains all materials for the Introduction to Python for Astrophysics coure, including:
+This repository contains all materials for the Introduction to Python for Astrophysics course, including:
 
 - Lecture slides
 - Exercises
