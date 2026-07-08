@@ -2,6 +2,7 @@
 marp: true
 author: Natalie Williams
 theme: gaia
+size: 16:9
 pageinate: true
 ---
 
@@ -12,9 +13,9 @@ pageinate: true
 -->
 ![bg right:40%](./images/potsdam.png)
 
-# Python Beginners Bootcamp
-## Universität Potsdam
-### Winter 2025
+## Introduction to Python for Astrophysics
+### Universität Potsdam
+#### Summer 2026
 
 ```python
 print("Hello world!")
@@ -25,22 +26,21 @@ print("Hello world!")
 ###### natalie.williams@uni-potsdam.de
 ---
 ## Logistics
-- This course is a one week intensive course designed to teach basic Python programming for data analysis
-- The course is aimed at complete beginners to Python or programming in general, those who know another language, or just those that want to brush up 
-- Each day will consist of two sessions: one from 10:00 - 13:00, and one from 14:00 - 17:00
-- All sessions will take place here in room 0.087
-
+- This course is designed to teach the *basics* of Python programming for data analysis
+- It is aimed at complete beginners to Python or programming in general, those who know another language, or just those that want to brush up 
+- All sessions will take place here in room 0.087 on Fridays at 10:15, **please arrive on time**
+- To pass this course you **must** complete the final coding assignment
 ---
 ## Logistics
-- Each session will be lecture style for ~45 mins, followed by hands on coding for the remaining time where I will be available to help
+- Each session will be lecture style for ~30 mins, followed by hands on coding for the remaining time where I will be available to help
 - Material is available on moodle, and you may use the computers here or your own personal laptop
-- You are encouraged to work together with your neighbour, and to google things - [stackoverflow](https://stackoverflow.com/questions) is your friend (whilst ChatGPT can write code, you are encouraged not to use it whilst learning)
+- You are encouraged to work together with your neighbour, and to google things - [stackoverflow](https://stackoverflow.com/questions) is your friend *(whilst ChatGPT can write code, you are encouraged not to use it whilst learning)*
 - This is the first time this course is being delivered, so please ask questions is something is unclear! We can slow things down as much as needed.
 
 ---
 ## Course content
 
-#### What this course will cover
+#### What this course *will* cover
 - Basic shell usage
 - Python basics: Variables, input/output, operators, data types
 - Control flow: conditional statements, boolean logic, error handling
@@ -49,15 +49,14 @@ print("Hello world!")
 - Important modules: `matplotlib`, `numpy`, `scipy`, `astropy`
 - Conda and virtual environments
 ---
-#### What this course won't cover
+#### What this course *won't* cover
 - Shell scripting
 - Binary and computer memory allocation
 - Linux system administration or remote access tools
-- More advanced Python: classes, generators, lambda functions
+- More advanced Python: generators, lambda functions
 - Graphical user interfaces or animations
-- Git
 
-This is a course in Python *for scientists* **not** computer programmers, so we will focus on the practical aspects of Python and not the nitty grtty details.
+This is a course in Python *for scientists* **not** computer programmers, so we will focus on the practical aspects of Python and not the nitty gritty theoretical details.
 
 ---
 ## What is Python?
@@ -296,9 +295,11 @@ print(f"ETA for {name[:3]}: {time}")
 ## Installing python
 Everything for this course is set up on the lab computers, however you can do the exercises on your personal laptops if you wish.
 
-You will need to make sure Python is installed - you can download Python [here](https://www.python.org/downloads/).
+All exercises are availbale to run online with Google Collab with instructions [here](https://moodle2.uni-potsdam.de/pluginfile.php/3703810/mod_resource/content/2/Python_Bootcamp%20%281%29.pdf).
 
-All exercises will be done through jupyter notebooks - for now this is easiest done by downloading and launching [Anaconda navigator](https://www.anaconda.com/products/navigator).
+Otherwise if you would like to run it locally on your laptop you will need to make sure Python is installed - you can download Python [here](https://www.python.org/downloads/).
+
+Exercises will be done through jupyter notebooks - for now this is easiest done locally by downloading and launching [Anaconda navigator](https://www.anaconda.com/products/navigator).
 
 ---
 ## How does Python run code?
@@ -343,9 +344,9 @@ Hello world!
 ---
 
 ## Comments
-- Comments allow us to add text to our code which is **not read** by the code
+- Comments allow us to add text which is **not read** by the code
 - This allows us to explain what the code is doing, which is very useful for long and complex code
-- You are **highly encouraged** to comment your code - both for yourself looking back at code and anyone marking your code to understand what you did
+- You are **highly encouraged** to comment your code - both for yourself and others
 - Comments are added by inserting a `#` followed by the comment
 ```python
 print('Hello world!') # This line outputs 'Hello world!'
@@ -353,7 +354,7 @@ print('Hello world!') # This line outputs 'Hello world!'
 
 ---
 ## Variables
-- Variables are names chosen by the coder to store values
+- Variables are containers for storing data values
 - We **assign** values to variables with `=`
 - Variable names can include letters, numbers and underscores, but **cannot** start with a number or contain spaces
 - Variables can be overwritten (be careful!)
@@ -387,7 +388,7 @@ x, y, z = int(3), int(2.8), int('5') # x is 3, y is 2, z is 5
 
 x, y, z = float(3), float(2.8), float('5') # x is 3.0, y is 2.8, z is 5.0
 
-x, y, z = str('hello'), str(3), str(2.8) # x is 'hello', y is '3', z is '3.8'
+x, y, z = str('hello'), str(3), str(2.8) # x is 'hello', y is '3', z is '2.8'
 
 x = 4.7
 y = int(x) # y is 4
@@ -474,7 +475,7 @@ print(name[5:]) # 5th to end -> 'ie'
 print(name[1:6:2]) # every 2nd letter 2nd to 7th -> 'aai'
 print(name[::3]) # every 3rd letter -> 'Nae'
 ```
-- We can also use `len` to get the length of a string i.e. `len(name`)
+- We can also use `len` to get the length of a string i.e. `len(name)`
 
 ---
 ## Modifying strings
@@ -676,7 +677,7 @@ print(other_planets) # ("Venus" , "Earth")
 planets = {"Mercury" , "Venus" , "Earth"}
 print(planets) # {'Mercury', 'Earth', 'Venus'}
 ```
-- Sets can contain all data types, but other collections, sets **do not** allow multiple entries with the same value
+- Sets can contain all data types, but unlike other collections, sets **do not** allow multiple entries with the same value
  ```python
 myset = {"Mercury" , "Venus" , "Earth" , "Mercury", 7.3 , 1 , True, False}
 print(myset) # {False, 1, 'Earth', 'Mercury', 7.3, 'Venus'}
@@ -717,7 +718,7 @@ print(planets1.union(planets2))
 print(planets1.intersection(planets2)) 
 # joins but keeps only duplicates -> {'Earth', 'Venus'}
 print(planets1.difference(planets2)) 
-# keeps itens in first set not in the second ->  {'Mercury'}
+# keeps items in first set not in the second ->  {'Mercury'}
 print(planets1.symmetric_difference(planets2)) 
 # keeps all except duplicates -> {'Mercury', 'Mars'}
 ```
@@ -982,7 +983,7 @@ while i < 10: # runs code block while this is True
 ---
 ## `break` statements
 ![bg right:45% height:750](./images/break-statement-flow-diagram.png)
-- We cthean force the loop to end with a `break`  statement
+- We can force the loop to end with a `break`  statement
 ```python
 number = 1
 
@@ -1173,7 +1174,7 @@ def luminosity(radius, temperature):
     Returns:
         float: Luminosity in watts (W).
     """
-    sigma = 5.670374e-8  # Stefan-Boltzmann constant in W/m²·K⁴
+    sigma = 5.670374e-8  # Stefan-Boltzmann constant in W/m^2 K^4
     return 4 * 3.1416 * radius**2 * sigma * temperature**4
 
 L = luminosity(6.96e8, 5778)
@@ -1440,7 +1441,7 @@ conda install numpy
 ```
 - Environments can be deleted with the `remove` command
 ```bash
-(base) Natalie@mylinux:~$  conda env remove -n myenv2
+(base) Natalie@mylinux:~$  conda env remove -n myenv2 --all
 ```
 ---
 ## Activating and deactivating environments
